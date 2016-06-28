@@ -1,20 +1,23 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-import { Nuform } from './app.interface';
+import {Component} from "@angular/core";
+import {Nuform} from "./app.interface";
 /*
  * App Component
  * Top Level Component
  */
+declare var fabric:any;
+declare var NUFORM:Nuform;
+
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.style.css'
   ],
   template: `
-   <canvas id="canvas" width="{{nuform.width}}" height="{{nuform.height}}"></canvas>
+   <canvas id="canvas" [width]="nuform.width" [height]="nuform.height"></canvas>
+
   `
 })
 export class App {
@@ -25,16 +28,11 @@ export class App {
 
   constructor() {
     this.nuform = NUFORM;
+
   }
 
 }
 
-var NUFORM:Nuform = {
-  'image': 'default.jpg',
-  'width': 640,
-  'height': 480,
-  'lesionmap': ''
-}
 
 /*
  * Please review the https://github.com/AngularClass/angular2-examples/ repo for
