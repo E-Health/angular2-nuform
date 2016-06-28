@@ -16,7 +16,7 @@ declare var NUFORM:Nuform;
     './app.style.css'
   ],
   template: `
-   <canvas id="canvas" (mouseenter)="canvasEnter()" (mouseleave)="canvasLeave()" #myCanvas [width]="nuform.width" [height]="nuform.height"></canvas>
+   <canvas id="canvas" (mouseover)="canvasEnter()" (mouseleave)="canvasLeave()" #myCanvas [width]="nuform.width" [height]="nuform.height"></canvas>
 
   `
 })
@@ -25,6 +25,7 @@ export class App {
   name = 'Angular2 NuForm';
   url = 'http://nuchange.ca/nuform';
   nuform:Nuform;
+  bootstrap:boolean = true; // Needs bootstraping
 
   constructor() {
     this.nuform = NUFORM;
@@ -33,14 +34,21 @@ export class App {
 
   canvasEnter() {
     var _fabric:any = new fabric.Canvas('canvas');
-    _fabric.setBackgroundImage(this.nuform.image, _fabric.renderAll.bind(_fabric));
+    if (this.bootstrap) {
+      _fabric.setBackgroundImage(this.nuform.image, _fabric.renderAll.bind(_fabric));
+      _fabric.loadFromJSON(this.nuform.numap_in, _fabric.renderAll.bind(_fabric));
+      this.bootstrap = false;
+    }
     _fabric.isDrawingMode = true;
-
+    console.log("inside");
   }
 
   canvasLeave() {
-    var _fabric:any = new fabric.Canvas('canvas');
+    /*    var _fabric:any = new fabric.Canvas('canvas');
     _fabric.isDrawingMode = false;
+     this.nuform.numap_out = JSON.stringify(_fabric);
+     NUFORM = this.nuform;
+     console.log("outside");*/
   }
 
 
