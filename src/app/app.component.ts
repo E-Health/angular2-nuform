@@ -17,11 +17,11 @@ declare var NUFORM:Nuform;
   ],
   template: `
    <canvas id="canvas" (mouseover)="canvasEnter()" (mouseleave)="canvasLeave()" #myCanvas [width]="nuform.width" [height]="nuform.height"></canvas>
-  <button (click)="saveClicked()">Save</button>
+   <button (click)="saveClicked()">Save</button><button (click)="clearClicked()">Clear</button>
   `
 })
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
+  //angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular2 NuForm';
   url = 'http://nuchange.ca/nuform';
   nuform:Nuform;
@@ -58,6 +58,11 @@ export class App {
     this._fabric.isDrawingMode = false;
     console.log(NUFORM.numap_out);
 
+  }
+
+  clearClicked() {
+    this._fabric.clear();
+    this._fabric.isDrawingMode = true;
   }
 
 
