@@ -11,7 +11,7 @@ declare var fabric:any;
 declare var NUFORM:Nuform;
 
 @Component({
-  selector: 'app',
+  selector: 'nuform-app',
   styleUrls: [
     './app.style.css'
   ],
