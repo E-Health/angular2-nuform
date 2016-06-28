@@ -2,9 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
-
-import { AppState } from './app.service';
-
+import { Nuform } from './app.interface';
 /*
  * App Component
  * Top Level Component
@@ -16,62 +14,26 @@ import { AppState } from './app.service';
     './app.style.css'
   ],
   template: `
-    <nav>
-      <span>
-        <a [routerLink]=" ['./'] ">
-          Index
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./home'] ">
-          Home
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./detail'] ">
-          Detail
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./about'] ">
-          About
-        </a>
-      </span>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
+   <canvas id="canvas" width="{{nuform.width}}" height="{{nuform.height}}"></canvas>
   `
 })
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+  name = 'Angular2 NuForm';
+  url = 'http://nuchange.ca/nuform';
+  nuform:Nuform;
 
-  constructor(
-    public appState: AppState) {
-
+  constructor() {
+    this.nuform = NUFORM;
   }
 
-  ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
+}
 
+var NUFORM:Nuform = {
+  'image': 'default.jpg',
+  'width': 640,
+  'height': 480,
+  'lesionmap': ''
 }
 
 /*
