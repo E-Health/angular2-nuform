@@ -5,5 +5,6 @@ export interface Nuform {
   image:string,
   width:number,
   height:number,
-  lesionmap:string,
+  numap_in:string,
+  numap_out:string
 }
