@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component, Renderer} from "@angular/core";
+import {Component} from "@angular/core";
 import {Nuform} from "./app.interface";
 /*
  * App Component
@@ -16,7 +16,7 @@ declare var NUFORM:Nuform;
     './app.style.css'
   ],
   template: `
-   <canvas id="canvas" (mouseenter)="canvasEnter($event)" (mouseleave)="canvasLeave($event)" #myCanvas [width]="nuform.width" [height]="nuform.height"></canvas>
+   <canvas id="canvas" (mouseenter)="canvasEnter()" (mouseleave)="canvasLeave()" #myCanvas [width]="nuform.width" [height]="nuform.height"></canvas>
 
   `
 })
@@ -25,20 +25,17 @@ export class App {
   name = 'Angular2 NuForm';
   url = 'http://nuchange.ca/nuform';
   nuform:Nuform;
-  nuformCanvas:any;
 
-  constructor(renderer:Renderer) {
+  constructor() {
     this.nuform = NUFORM;
-    this.nuformCanvas = new fabric.Canvas('canvas');
-
   }
 
-  canvasEnter(event) {
+  canvasEnter() {
     var _fabric:any = new fabric.Canvas('canvas');
     _fabric.isDrawingMode = true;
   }
 
-  canvasLeave(event) {
+  canvasLeave() {
     var _fabric:any = new fabric.Canvas('canvas');
     _fabric.isDrawingMode = false;
   }
