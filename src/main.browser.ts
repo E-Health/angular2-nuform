@@ -14,7 +14,7 @@ import { ENV_PROVIDERS, decorateComponentRef } from './platform/environment';
 * App Component
 * our top level component that holds all of our components
 */
-import { App, APP_PROVIDERS } from './app';
+import { App} from './app';
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
@@ -22,11 +22,8 @@ import { App, APP_PROVIDERS } from './app';
  */
 export function main(initialHmrState?: any): Promise<any> {
 
-  return bootstrap(App, [
-    ...PLATFORM_PROVIDERS,
-    ...ENV_PROVIDERS,
-    ...APP_PROVIDERS,
-  ])
+  //noinspection TypeScriptValidateTypes
+  return bootstrap(App)
   .then(decorateComponentRef)
   .catch(err => console.error(err));
 
