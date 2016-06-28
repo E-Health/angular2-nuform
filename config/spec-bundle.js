@@ -26,6 +26,9 @@ require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
 require('zone.js/dist/sync-test');
 
+//FabricJS for LesionMapper
+require('fabric/dist/fabric');
+
 // RxJS
 require('rxjs/Rx');
 
