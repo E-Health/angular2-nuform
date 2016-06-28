@@ -51,6 +51,8 @@ export class MyList implements AfterContentInit {
 # Refer to [cheatsheet](https://angular.io/docs/ts/latest/guide/cheatsheet.html)
 
 # Accessing external library
+in vendor.browser.ts
+import 'fabric';
 
 ```
 declare var fabric:any;
