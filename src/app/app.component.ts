@@ -28,17 +28,22 @@ export class App {
 
   constructor() {
     this.nuform = NUFORM;
+
   }
 
   canvasEnter() {
     var _fabric:any = new fabric.Canvas('canvas');
+    _fabric.setBackgroundImage(this.nuform.image, _fabric.renderAll.bind(_fabric));
     _fabric.isDrawingMode = true;
+
   }
 
   canvasLeave() {
     var _fabric:any = new fabric.Canvas('canvas');
     _fabric.isDrawingMode = false;
   }
+
+
 }
 
 
