@@ -5,6 +5,6 @@ export interface Nuform {
   image:string,
   width:number,
   height:number,
-  numap_in:string,
-  numap_out:string
+  nuform_in:string,
+  nuform_out:string
 }
