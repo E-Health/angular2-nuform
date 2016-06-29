@@ -37,7 +37,7 @@ export class App {
     this._fabric = new fabric.Canvas('canvas');
     if (this.bootstrap) {
       this._fabric.setBackgroundImage(this.nuform.image, this._fabric.renderAll.bind(this._fabric));
-      this._fabric.loadFromJSON(this.nuform.numap_in, this._fabric.renderAll.bind(this._fabric));
+      this._fabric.loadFromJSON(this.nuform.nuform_in, this._fabric.renderAll.bind(this._fabric));
       this.bootstrap = false;
     }
     this._fabric.isDrawingMode = true;
@@ -53,10 +53,10 @@ export class App {
   }
 
   saveClicked() {
-    this.nuform.numap_out = JSON.stringify(this._fabric);
+    this.nuform.nuform_out = JSON.stringify(this._fabric);
     NUFORM = this.nuform;
     this._fabric.isDrawingMode = false;
-    console.log(NUFORM.numap_out);
+    console.log(NUFORM.nuform_out);
 
   }
 
