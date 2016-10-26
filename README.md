@@ -1,4 +1,4 @@
-# Angular2-NuForm
+# Angular2 - NuForm
 
 Created using [angular2-webpack-starter](https://github.com/angularclass/angular2-webpack-starter)
 
